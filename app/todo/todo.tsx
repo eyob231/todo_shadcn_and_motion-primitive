@@ -73,7 +73,9 @@ export default function Todo() {
 
     return (
         <>
+
         <Tilt rotationFactor={10} isRevese={true}>
+            <div className="min-h-screen bg-gradient-to-b from-blue-100 to-purple-100 py-8">
         <Card className="w-[600px] bg-blue-500 m-auto mt-30">
             <CardHeader>
             <form onSubmit={handleSubmit}>
@@ -101,6 +103,7 @@ export default function Todo() {
         </ul>
         </CardContent>
         </Card>
+        </div>
         </Tilt>
         <AlertDialog open={showAlert} onOpenChange={setShowAlert}>
         <AlertDialogContent>
