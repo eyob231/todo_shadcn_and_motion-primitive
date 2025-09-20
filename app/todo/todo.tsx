@@ -92,13 +92,11 @@ export default function Todo() {
         <ul className="color-red ml-10">
             
             {todos.map((item) => (
-                <>
                 <div className="flex items-center gap-2">
                 <li key={item.id} className="color-red text-2xl list-disc " style={{textDecoration: item.completed ? 'line-through' : 'none'}}><TextEffect per='char' preset='fade-in-blur'>{item.todo}</TextEffect></li>
                 <Button className="bg-red-500 " type="submit" onClick={()=>handleDelete(item.id)}>Delete</Button>
                 <Button className="bg-green-500 " type="submit" onClick={()=>handleComplete(item.id)}>Complete</Button>
                 </div>
-                </>
             ))}
         </ul>
         </CardContent>
