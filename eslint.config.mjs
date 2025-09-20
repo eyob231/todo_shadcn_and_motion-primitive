@@ -19,6 +19,13 @@ const eslintConfig = [
       "build/**",
       "next-env.d.ts",
       "components/motion-primitives/**",
+      "components/ui/**",
+      "app/auth/**",
+      "app/todo/**",
+      "app/layout.tsx",
+      "app/page.tsx",
+      "app/globals.css",
+      "app/next-env.d.ts",
     ],
   },
 ];
