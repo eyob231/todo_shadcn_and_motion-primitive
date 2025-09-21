@@ -8,7 +8,6 @@ import { AlertDialog,AlertDialogAction,AlertDialogContent,AlertDialogDescription
 import { AlertCircle } from "lucide-react"
 import { TextEffect } from '@/components/motion-primitives/text-effect'
 import { Tilt } from '@/components/motion-primitives/tilt'
-import Alert from '@/components/Entity/alert'
 export default function Todo() {
     const [todo, setTodo] = useState<string>("")
     const [showAlert, setShowAlert] = useState(false)
@@ -106,11 +105,22 @@ export default function Todo() {
         </Card>
         </div>
         </Tilt>
-        <Alert 
-          todo={todo} 
-          open={showAlert} 
-          onOpenChange={setShowAlert}
-        />
+        <AlertDialog open={showAlert} onOpenChange={setShowAlert}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <div className="flex items-center gap-2">
+              <AlertCircle className="text-yellow-500" size={24} />
+              <AlertDialogTitle>Todo Already Exists</AlertDialogTitle>
+            </div>
+            <AlertDialogDescription>
+              The todo {todo} already exists in your list. Please enter a unique todo.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogAction>OK</AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
         </>
     )
 }
