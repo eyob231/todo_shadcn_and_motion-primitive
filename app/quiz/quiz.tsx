@@ -93,7 +93,14 @@ export default function Quiz() {
     }, 2000);
   }
 
-  
+  const handleDelete = async (id: string) => {
+    const { error } = await supabase.from('quiz').delete().eq('id', id);
+    if (error) {
+      console.error('Error deleting quiz:', error);
+      return;
+    }
+    refetch(); // Refresh the list after deleting
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-100 to-purple-100 py-8">
@@ -135,7 +142,14 @@ export default function Quiz() {
               <li key={item.id} className="border-b pb-4">
                 <div className="flex justify-between items-start">
                   <h3 className="font-semibold text-lg mb-2 flex-1">{item.questions}</h3>
-                  
+                  <Button 
+                    onClick={() => handleDelete(item.id)}
+                    variant="destructive" 
+                    size="sm"
+                    className="ml-2"
+                  >
+                    Delete
+                  </Button>
                 </div>
                 <div className="flex items-center gap-2 mt-2">
                   <select
